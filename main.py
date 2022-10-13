@@ -1,9 +1,9 @@
 import time
 import glob
+import os
 
 import camelot
 import pandas as pd
-
 
 
 def get_data_from_pdf(file_path, pages):
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     files_path_list = glob.glob(f"D:\python_apps\pdf_data_retrieve\*.pdf")
     pages = '2'
     paragraph_list = ["1.1.", "1.4.1.", "1.4.2."]
-    data_dict = {"id":[], "name": [], "code": []}
+    data_dict = {"file":[], "id":[], "name": [], "code": []}
 
     start_time = time.time()
 
@@ -30,6 +30,7 @@ if __name__ == "__main__":
         tables = get_data_from_pdf(file_path=path, pages=pages)
         df_data = filter_data(sort_list=paragraph_list, table=tables[0])
 
+        data_dict['file'].append(os.path.split(path)[1].replace('.pdf', ''))
         data_dict['id'].append(df_data[2][2])
         data_dict['name'].append(df_data[2][12])
         data_dict['code'].append(df_data[2][13])
