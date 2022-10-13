@@ -10,7 +10,6 @@ Gets text data from pdf tables and save to csv file.
 With:
 ```
 pip install camelot-py
-and
 pip install pandas
 ```
 
