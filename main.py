@@ -5,7 +5,6 @@ import camelot
 import pandas as pd
 
 
-
 def get_data_from_pdf(file_path, pages):
     return camelot.read_pdf(file_path, pages=pages, flavor='stream')
 
