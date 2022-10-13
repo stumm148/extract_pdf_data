@@ -27,7 +27,7 @@ if __name__ == "__main__":
     start_time = time.time()
 
     for path in files_path_list:
-        print()
+        
         tables = get_data_from_pdf(file_path=path, pages=pages)
         df_data = filter_data(sort_list=paragraph_list, table=tables[0])
 
