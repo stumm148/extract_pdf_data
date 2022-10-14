@@ -1,6 +1,6 @@
 import time
 import glob
-import os
+from pathlib import Path
 
 import camelot
 import pandas as pd
@@ -33,7 +33,7 @@ if __name__ == "__main__":
         tables = get_data_from_pdf(file_path=path, pages=pages)
         df_data = filter_data(sort_list=paragraph_list, table=tables[0])
 
-        data_dict['file'].append(os.path.split(path)[1][:-4])  # add only file name without extension (.pdf)
+        data_dict['file'].append(Path(path).stem)  # add only file name without extension (.pdf)
         data_dict['id'].append(df_data[2].iloc[0])
         data_dict['name'].append(df_data[2].iloc[1])
         data_dict['code'].append(df_data[2].iloc[2])
